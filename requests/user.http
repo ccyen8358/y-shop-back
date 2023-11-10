@@ -1,0 +1,27 @@
+### desc: get user list
+### route: /api/user/list
+
+GET {{root}}/api/user/list
+content-type: application/json
+Authorization: Bearer {{access_token}}
+
+### desc: get user by id
+### route: /api/user?id=****
+
+GET {{root}}/api/user?id=1
+content-type: application/json
+Authorization: Bearer {{access_token}}
+
+### desc: get user by username
+### route: /api/user?username=****
+
+GET {{root}}/api/user?username=admin
+content-type: application/json
+Authorization: Bearer {{access_token}}
+
+### desc: delete user by id
+### route: /api/users/user/:id
+
+DELETE {{root}}/api/user/1
+content-type: application/json
+Authorization: Bearer {{access_token}}

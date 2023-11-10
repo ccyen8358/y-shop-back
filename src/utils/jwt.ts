@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { LoginUser } from '../controllers/user-controller.js';
+import { LoginUser } from '../controllers/auth-controller.js';
 
 
 export const generateToken = (user: LoginUser) => {

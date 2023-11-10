@@ -1,22 +1,16 @@
 import express from 'express';
-// import {
-//   authUser,
-//   registerUser,
-//   logoutUser,
-//   getUserProfile,
-//   updateUserProfile,
-//   getUsers,
-//   deleteUser,
-//   getUserById,
-//   updateUser,
-// } from '../controllers/userController.js';
-// import { protect, admin } from '../middleware/authMiddleware.js';
+import {
+    deleteUser,
+    getUser,
+    getUserList
+} from '../controllers/user-controller.js';
+import { isLoggedIn, isAdmin } from '../middleware/auth-middleware.js';
 
 const router = express.Router();
 
-// router.route('/').post(registerUser).get(protect, admin, getUsers);
-// router.post('/auth', authUser);
-// router.post('/logout', logoutUser);
+router.route('/list').get(isLoggedIn, isAdmin, getUserList);
+router.route('/').get(isLoggedIn, isAdmin, getUser);
+router.route('/:id').delete(isLoggedIn, isAdmin, deleteUser);
 // router
 //   .route('/profile')
 //   .get(protect, getUserProfile)

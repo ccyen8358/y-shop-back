@@ -2,8 +2,9 @@ import "./config/dotenv-config.js"
 import path from 'path';
 import express from 'express';
 import cookieParser from 'cookie-parser';
-import db from './database/database.js';
 import { errorHandler, notFound } from "./middleware/error-handler.js";
+import authRouter from "./routes/auth-route.js";
+import userRouter from "./routes/user-route.js";
 // import productRoutes from './src/routes/productRoutes.js';
 // import userRoutes from './src/routes/user-route.js';
 // import orderRoutes from './src/routes/orderRoutes.js';
@@ -19,7 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // app.use('/api/products', productRoutes);
-// app.use('/api/users', userRoutes);
+app.use('/api/auth', authRouter);
+app.use('/api/user', userRouter);
 // app.use('/api/orders', orderRoutes);
 // app.use('/api/upload', uploadRoutes);
 
@@ -29,10 +31,6 @@ app.use(cookieParser());
 
 app.get('/api/products', (req, res) => {
   res.json({ hehe: 'haha' });
-});
-app.get('/api/users', async (req, res) => {
-  const data = await db.selectFrom('user').selectAll().execute();
-  res.json(data);
 });
 app.get('/api/hehe', async (req, res, next) => {
   try {

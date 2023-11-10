@@ -1,0 +1,20 @@
+### sign up a new user account
+
+POST {{root}}/api/auth/signup
+content-type: application/json
+
+{
+    "username": "guest",
+    "password": "guest",
+    "email": "ccyen8358@gmail.com"
+}
+
+### user login
+
+POST {{root}}/api/auth/login
+content-type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}

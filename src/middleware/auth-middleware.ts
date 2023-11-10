@@ -26,7 +26,7 @@ const isLoggedIn = asyncHandler(async (req: Request, res: Response, next: NextFu
 
 // User must be an admin
 const isAdmin = (req: Request, res: Response, next: NextFunction) => {
-    if (req.user?.isAdmin) {
+    if (req.user?.is_admin) {
         next();
     } else {
         res.status(StatusCodes.FORBIDDEN);
